@@ -31,7 +31,7 @@ function Commencer()
       largeur: 20
     };
 
-    //enregistrement pour l'apparition des carré rondom
+    //enregistrement pour l'apparition de carré aléatoire
     var cube = {
       x: Math.random() * (longeur - 40),
       y: Math.random() * (largeur - 40),
@@ -40,7 +40,34 @@ function Commencer()
     };
 
     //addEventListener permet la controle de touche du clavier pour le mouvement de la carré elle et comme l'evenment onClick
-    window.addEventListener("touchebas", function(e){
-      touche[e.toucheCode] = true;
+    //ajouter evenement pour le touche bas
+    //la fonction keyCode  permet de donner code ASCII  d'un touche
+    window.addEventListener("keydown", function(e){
+      touche[e.keyCode] = true;
     }, false);
+
+    //ajout evenement pour le touche haut
+    window.addEventListener("keyup",function(e){
+      delete touche[e.keyCode];
+    }, false);
+
+//fonction pour animation de la jeux
+function jeux(){
+  update();
+  render();
+}
+//cette fonction permet la mise a jours de cube a chaque touche appuyer dans le clavier (haut, bas, gouche, droit)
+function update(){
+  if(touche[38]) joueur.y-=vitesse;
+  if (touche[40]) joueur.y+=vitesse;
+  if (touche[37]) joueur.x-=vitesse;
+  if (touche[39]) joueur.x+=vitesse;
+
+  if (joueur.x < 0) joueur.x = 0;
+  if (joueur.y < 0) joueur.y = 0;
+  if (joueur.x >= longeur - joueur.longeur) joueur.x = longeur - joueur.longeur;
+  if (joueur.y >= largeur - joueur.)
+  }
+}
+
 }
