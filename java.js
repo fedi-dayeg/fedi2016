@@ -1,14 +1,14 @@
 function Commencer()
 {
-    var canvas=document.getElementById("moncanvas");
+    var canvas = document.getElementById("monCanvas");
     //attribuer un context
-    var Moncontext= canvas.getElementById("2d");
+    var context = canvas.getContext("2d");
     // canvas temps
     var canvasTemp= document.getElementById("Ctemps");
     var Moncontext2=canvasTemp.getContext("2d");
 
     //creation de rectangle
-    Moncontext.clearRect(0, 0, 500, 400);
+    context.clearRect(0, 0, 500, 400);
     Moncontext2.clearRect(0, 0, 250, 30);
 
     //variable pour le temps du compteur
@@ -31,4 +31,16 @@ function Commencer()
       largeur: 20
     };
 
+    //enregistrement pour l'apparition des carré rondom
+    var cube = {
+      x: Math.random() * (longeur - 40),
+      y: Math.random() * (largeur - 40),
+      longeur: 20,
+      largeur: 20
+    };
+
+    //addEventListener permet la controle de touche du clavier pour le mouvement de la carré elle et comme l'evenment onClick
+    window.addEventListener("touchebas", function(e){
+      touche[e.toucheCode] = true;
+    }, false);
 }
