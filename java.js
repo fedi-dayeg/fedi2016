@@ -66,7 +66,11 @@ function update(){
   if (joueur.x < 0) joueur.x = 0;
   if (joueur.y < 0) joueur.y = 0;
   if (joueur.x >= longeur - joueur.longeur) joueur.x = longeur - joueur.longeur;
-  if (joueur.y >= largeur - joueur.)
+  if (joueur.y >= largeur - joueur.largeur) joueur.y = largeur - joueur.largeur;
+    if (collision(joueur, cube)) process();
+  }
+  function render(){
+    context.clearRect(0, 0, longeur, largeur);
   }
 }
 
